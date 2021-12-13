@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 open class Rectangle(private val sideA: Double, private val sideB: Double) : Shape {
     init {

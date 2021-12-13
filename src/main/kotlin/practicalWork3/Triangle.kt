@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 class Triangle(private val sideA: Double, private val sideB: Double, private val sideC: Double) : Shape {
     init {

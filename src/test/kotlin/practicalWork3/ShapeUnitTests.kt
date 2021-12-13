@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 import org.junit.Test
 import java.lang.IllegalArgumentException

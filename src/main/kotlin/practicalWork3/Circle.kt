@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 class Circle (private val radius : Double) : Shape {
     init {

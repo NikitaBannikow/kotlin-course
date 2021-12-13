@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 interface ShapeFactory {
     fun createCircle(radius: Double): Circle

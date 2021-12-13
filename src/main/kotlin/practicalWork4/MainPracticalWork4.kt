@@ -1,4 +1,4 @@
-package practical_work4
+package practicalWork4
 
 @Suppress("UNUSED_PARAMETER")
 fun main(args: Array<String>) {

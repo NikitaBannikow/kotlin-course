@@ -1,4 +1,4 @@
-package practical_work1
+package practicalWork1
 
 import org.junit.Test
 

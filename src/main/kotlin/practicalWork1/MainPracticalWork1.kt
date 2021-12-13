@@ -1,4 +1,4 @@
-package practical_work1
+package practicalWork1
 
 const val inputText =
     "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference.\n" +

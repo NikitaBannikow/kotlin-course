@@ -1,4 +1,4 @@
-package practical_work2
+package practicalWork2
 
 import java.util.*
 import kotlin.math.pow

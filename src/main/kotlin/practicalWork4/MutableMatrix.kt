@@ -1,4 +1,4 @@
-package practical_work4
+package practicalWork4
 
 class MutableMatrix (inputMatrix: List<IntArray>) : Matrix(inputMatrix) {
     operator fun set(row: Int, column: Int, value: Int) {

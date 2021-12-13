@@ -1,4 +1,4 @@
-package practical_work3
+package practicalWork3
 
 interface Shape {
     fun calcArea(): Double
