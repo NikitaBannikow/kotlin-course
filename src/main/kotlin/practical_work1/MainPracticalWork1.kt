@@ -7,7 +7,7 @@ const val inputText =
             "Kotlin mainly targets the JVM, but also compiles to JavaScript (e.g., for frontend web applications " +
             "using React) or native code (via LLVM); e.g., for native iOS apps sharing business logic with Android " +
             "apps. Language development costs are borne by JetBrains, while the Kotlin Foundation protects the " +
-            "Kotlin trademark.";
+            "Kotlin trademark."
 
 @Suppress("UNUSED_PARAMETER")
 fun main(args: Array<String>) {
