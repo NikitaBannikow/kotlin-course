@@ -129,4 +129,79 @@ class MatrixUnitTests {
         assertEquals(expected, other1)
         assertEquals(expected, other2)
     }
+
+    @Test
+    internal fun test_times() {
+        // first  = [1, 2, 3], [4, 5, 6]
+        // second = [3, 2, 1], [1, 0, 5]
+
+        val other1 = first * second
+        var other2 = first.copy()
+        other2 *= second
+
+        val expected = Matrix(listOf (
+            intArrayOf(3, 4, 3),
+            intArrayOf(4, 0, 30)
+        ))
+        assertEquals(expected, other1)
+        assertEquals(expected, other2)
+    }
+
+    @Test
+    internal fun test_div() {
+        // second = [3, 2, 1], [1, 0, 5]
+        // first  = [1, 2, 3], [4, 5, 6]
+        val other1 = second / first
+        var other2 = second.copy()
+        other2 /= first
+
+        val expected = Matrix(listOf (
+            intArrayOf(3, 1, 0),
+            intArrayOf(0, 0, 0)
+        ))
+        assertEquals(expected, other1)
+        assertEquals(expected, other2)
+    }
+
+    @Test
+    internal fun test_div_scalar() {
+        // second = [3, 2, 1], [1, 0, 5]
+        val other1 = second / 2
+        var other2 = second.copy()
+        other2 /= 2
+
+        val expected = Matrix(listOf (
+            intArrayOf(1, 1, 0),
+            intArrayOf(0, 0, 2)
+        ))
+        assertEquals(expected, other1)
+        assertEquals(expected, other2)
+    }
+
+    @Test
+    internal fun test_div_unary() {
+        // second = [3, 2, 1], [1, 0, 5]
+        val other1 = +second
+        val other2 = -second
+
+        val expected = Matrix(listOf (
+            intArrayOf(-3, -2, -1),
+            intArrayOf(-1, 0, -5)
+        ))
+        assertEquals(second, other1)
+        assertEquals(expected, other2)
+    }
+
+    @Test
+    internal fun err_test_div_unary() {
+        // second = [3, 2, 1], [1, 0, 5]
+        val result = MutableMatrix(second.copyList())
+        result[0, 0] = 100
+        result[1, 2] = 99
+        val expected = Matrix(listOf (
+            intArrayOf(100, 2, 1 ),
+            intArrayOf(1,   0, 99)
+        ))
+        assertEquals(expected, result)
+    }
 }
