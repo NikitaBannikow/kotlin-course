@@ -93,7 +93,7 @@ open class Matrix(inputMatrix: List<IntArray>) {
     }
 
     // Duplicate the matrix
-    fun dup() : Matrix = Matrix(matrix)
+    fun copy() : Matrix = Matrix(matrix)
 
     // Supports: matrixA - matrixB, matrixA -= MatrixB
     operator fun minus(other: Matrix): Matrix {
@@ -189,7 +189,7 @@ open class Matrix(inputMatrix: List<IntArray>) {
         return Matrix(copy)
     }
 
-    operator fun unaryPlus(): Matrix = this.dup()
+    operator fun unaryPlus(): Matrix = this.copy()
 
     fun copyList() : List<IntArray> {
         val copy: List<IntArray> =

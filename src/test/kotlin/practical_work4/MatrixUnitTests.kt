@@ -73,14 +73,14 @@ class MatrixUnitTests {
 
     @Test
     internal fun test_equals_op() {
-        val other = first.dup()
+        val other = first.copy()
         val result : Boolean = other == first
         assert(result)
     }
 
     @Test
     internal fun test_plus_op() {
-        var other = first.dup()
+        var other = first.copy()
 
         other += second
 
@@ -105,7 +105,7 @@ class MatrixUnitTests {
 
     @Test
     internal fun test_minus_op() {
-        var other = first.dup()
+        var other = first.copy()
 
         other -= second
 
@@ -120,7 +120,7 @@ class MatrixUnitTests {
     internal fun test_minus_scalar() {
         // first  = [1, 2, 3], [4, 5, 6]
         val other1 = first - 5
-        var other2 = first.dup()
+        var other2 = first.copy()
         other2 -= 5
         val expected = Matrix(listOf (
             intArrayOf(-4, -3, -2),
