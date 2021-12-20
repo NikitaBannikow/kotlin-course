@@ -35,9 +35,9 @@ val OPS_WITH_PRIORITIES = mapOf(
 val OPS = OPS_WITH_PRIORITIES.keys
 
 // Unary operations
-val UNARY_OPS = arrayOf('+', '-')
+val UNARY_OPS = setOf('+', '-')
 
-fun makeOperation(op1: Double, op2: Double, operation: Char): Double {
+private fun makeOperation(op1: Double, op2: Double, operation: Char): Double {
     return when (operation) {
         '+' -> {
             op1 + op2
@@ -58,7 +58,7 @@ fun makeOperation(op1: Double, op2: Double, operation: Char): Double {
     }
 }
 
-fun onOperation(exStack: Stack<Any>, operation: Char) {
+private fun onOperation(exStack: Stack<Any>, operation: Char) {
     try {
         val op1 = exStack.pop()
         val op2 = exStack.pop()
@@ -76,7 +76,7 @@ fun onOperation(exStack: Stack<Any>, operation: Char) {
     }
 }
 
-fun sanitize(expr: String): String {
+private fun sanitize(expr: String): String {
     // Exclude whitespaces and tabs
     val s = expr.replace("\t", "").replace(" ", "")
 
@@ -90,11 +90,11 @@ fun sanitize(expr: String): String {
 
 val LEFT_OPS_OF_UNARY = OPS + '$' + '('
 
-val RIGHT_OPS_OF_OPENING_BRACKET = arrayOf('(', '+', '-', 'e', 'P')
+val RIGHT_OPS_OF_OPENING_BRACKET = setOf('(', '+', '-', 'e', 'P')
 val RIGHT_OPS_OF_CLOSING_BRACKET = OPS + '$' + ')'
 
 val LEFT_OPS_OF_OPENING_BRACKET = OPS + '$' + '('
-val LEFT_OPS_OF_CLOSING_BRACKET = arrayOf(')', 'P', 'e')
+val LEFT_OPS_OF_CLOSING_BRACKET = setOf(')', 'P', 'e')
 
 fun normalizeToRPN(inputExpression: String): List<String> {
     // Sanitize expression
