@@ -14,6 +14,9 @@ fun alignText(
     lineWidth: Int = 120,
     alignment: Alignment = Alignment.LEFT
 ): String {
+    if (lineWidth < 1)
+        throw IllegalArgumentException("Line width shall be equal or greater 1")
+
     if (originalText.isEmpty()) return ""
 
     val notEmpty = { text: Text -> text.isNotEmpty() }
@@ -25,7 +28,7 @@ fun alignText(
             Alignment.RIGHT -> alignRight(trimmed, lineWidth)
             Alignment.CENTER -> alignCenter(trimmed, lineWidth)
             Alignment.JUSTIFY -> alignJustify(trimmed, lineWidth)
-            else -> alignLeft(trimmed, lineWidth)
+            else -> trimmed
         }
     }
 
@@ -81,12 +84,6 @@ fun alignText(
     return text.toString()
 }
 
-@Suppress("UNUSED_PARAMETER")
-private fun alignLeft(line: Text, lineWidth: Int): Text {
-    // Already aligned to left
-    return line
-}
-
 private fun alignRight(line: Text, lineWidth: Int): Text {
     return Text(line.padStart(lineWidth, ' '))
 }
@@ -106,7 +103,7 @@ private fun alignJustify(line: Text, lineWidth: Int): Text {
     // Split words
     val words = line.split(" ")
 
-    // Spread whitespaces between words from begining and end
+    // Spread whitespaces between words from beginning and end
     val spacesSpread = Array(words.size - 1) { 1 }
 
     var forwardIndex = 0
