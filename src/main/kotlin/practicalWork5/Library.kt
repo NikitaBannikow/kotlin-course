@@ -111,11 +111,7 @@ class Library : LibraryService {
         return books.filter {(_, status) -> (status is Status.Available) }.keys.toList()
     }
 
-    override fun getAllBookStatuses(): Map<Book, Status> {
-        val copy : MutableMap<Book, Status> = mutableMapOf()
-        copy.putAll(books)
-        return copy
-    }
+    override fun getAllBookStatuses(): Map<Book, Status> = books.toMap()
 
     override fun getBookStatus(book: Book): Status {
         if (!books.contains(book)) {
