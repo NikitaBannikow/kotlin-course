@@ -1,0 +1,21 @@
+[
+    {
+        "type": "practicalWork3.Circle",
+        "radius": 15.0
+    },
+    {
+        "type": "practicalWork3.Rectangle",
+        "sideA": 10.0,
+        "sideB": 15.0
+    },
+    {
+        "type": "practicalWork3.Square",
+        "side": 10.0
+    },
+    {
+        "type": "practicalWork3.Triangle",
+        "sideA": 10.0,
+        "sideB": 15.0,
+        "sideC": 10.0
+    }
+]
