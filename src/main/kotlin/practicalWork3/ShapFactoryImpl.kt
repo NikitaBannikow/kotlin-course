@@ -1,5 +1,7 @@
 package practicalWork3
 
+val SHAPES_TYPES = setOf("Circle", "Rectangle", "Square", "Triangle")
+
 class ShapeFactoryImpl : ShapeFactory {
 
     // Shapes factory
@@ -22,8 +24,7 @@ class ShapeFactoryImpl : ShapeFactory {
     }
 
     override fun createRandomShape(): Shape {
-        val shapes = listOf("Circle", "Rectangle", "Square", "Triangle")
-        return when (shapes.random()) {
+        return when (SHAPES_TYPES.random()) {
             "Circle" -> createRandomCircle()
             "Rectangle" -> createRandomSquare()
             "Square" -> createRandomRectangle()

@@ -30,7 +30,7 @@ fun dump(listName: String, shapes: List<Shape>) {
     println("Total perimeter size: $totalPerimeter")
 
     val info =
-        { shape: Shape -> shapeName(shape) + "(area:" + shape.calcArea() + ",perimeter:" + shape.calcPerimeter() + ")" }
+        { shape: Shape -> "$shape(area:" + shape.calcArea() + ",perimeter:" + shape.calcPerimeter() + ")" }
 
     var shapeWithMinArea: Shape? = null
     var shapeWithMaxArea: Shape? = null
@@ -53,22 +53,5 @@ fun dump(listName: String, shapes: List<Shape>) {
     println()
 }
 
-fun shapeName(shape: Shape): String {
-    return when (shape) {
-        is Circle -> {
-            "Circle"
-        }
-        is Square -> {
-            "Square"
-        }
-        is Rectangle -> {
-            "Rectangle"
-        }
-        is Triangle -> {
-            "Triangle"
-        }
-        else -> "Unknown"
-    }
-}
 
 

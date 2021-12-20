@@ -1,6 +1,9 @@
 package practicalWork3
 
-class Circle (private val radius : Double) : Shape {
+import kotlinx.serialization.Serializable
+
+@Serializable
+class Circle (val radius : Double) : Shape {
     init {
         if (radius <= 0.0) {
             throw IllegalArgumentException("Radius shall have a positive value")
@@ -14,4 +17,8 @@ class Circle (private val radius : Double) : Shape {
     override fun calcPerimeter(): Double {
         return 2 * kotlin.math.PI * radius
     }
+
+    override fun toString(): String = "Circle[radius:$radius]"
+
+    override fun equals(other: Any?) = (other is Circle) && other.radius == radius
 }

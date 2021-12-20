@@ -1,6 +1,9 @@
 package practicalWork3
 
-class Triangle(private val sideA: Double, private val sideB: Double, private val sideC: Double) : Shape {
+import kotlinx.serialization.Serializable
+
+@Serializable
+class Triangle(val sideA: Double, val sideB: Double, val sideC: Double) : Shape {
     init {
         if (sideA <= 0.0 || sideB <= 0.0 || sideA <= 0.0)
             throw IllegalArgumentException("Side shall have a positive length")
@@ -14,4 +17,9 @@ class Triangle(private val sideA: Double, private val sideB: Double, private val
     }
 
     override fun calcPerimeter(): Double = sideA + sideB + sideC
+
+    override fun toString(): String = "Triangle[sideA:$sideA,sideB:$sideB,sideC:$sideC]"
+
+    override fun equals(other: Any?) = (other is Triangle) && other.sideA == sideA
+            && other.sideB == sideB && other.sideC == sideC
 }
